@@ -12,7 +12,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final HttpLink httpLink = HttpLink(
-      uri: 'https://parseapi.back4app.com/graphql',
+      uri: 'https://parseapi.back4app.com/',
       headers: {
         'X-Parse-Application-Id': kParseApplicationId,
         'X-Parse-Client-Key': kParseClientKey,
@@ -67,7 +67,7 @@ class _MyHomePageState extends State<MyHomePage> {
       child: Scaffold(
         appBar: AppBar(
           title: Text(
-            'Parsing data using GraphQL',
+            'Crud with GraphSql',
           ),
         ),
         floatingActionButton: Row(
@@ -75,10 +75,8 @@ class _MyHomePageState extends State<MyHomePage> {
           children: [
             FloatingActionButton(
               heroTag: 'mutation_page',
-              child: Text('M',
-                style: TextStyle(
-                  color: Colors.white,
-                ),
+              child:Icon(
+                Icons.add,
               ),
               onPressed: (){
                 Navigator.pushReplacement(context, MaterialPageRoute(
@@ -102,7 +100,7 @@ class _MyHomePageState extends State<MyHomePage> {
             if (result.data == null) {
               return Center(
                   child: Text(
-                    "Loading...",
+                    "No data",
                     style: TextStyle(fontSize: 20.0),
                   ));
             } else {
